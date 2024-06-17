@@ -24,6 +24,9 @@
 			.full-hr {
 				width:100%;
 			}
+			.full-hr * {
+				float: left;
+			}
 			.full-vr {
 				height:100%;
 			}
@@ -39,20 +42,75 @@
 				margin-right: 5pt;
 				padding-left: 2pt;
 				padding-right: 2pt;
-				display: flex;
-				align-items: center;
+			}
+			
+			.dropdown-container button {
+				font: inherit;
+				font-size: inherit;
+				color: inherit;
+				background-color: transparent;
+				border: transparent;
+				cursor: pointer;
+			}
+			.dropdown-container .list {
+				position: absolute;
+				width: 100pt;
+				height: 180pt;
+				display: none;
+				background-color: darkorange;
+			}
+			.dropdown-container .list .option{
+				float: initial;
+			}
+			.dropdown-container:focus-within .list {
+				display: block;
 			}
 		</style>
 	</head>
 	<body style="margin:0; overflow:hidden;">
 		<div style="width:100vw; height:100vh;">
 			<!-- Top Menu Bar -->
-			<div id="top-menu" style="height:var(--top-menu-size); display:flex;" class="full-hr border-bottom">
-				<div>File</div>
-				<div>View</div>
-				<div>Edit</div>
-				<div>Commands</div>
-				<div>Help</div>
+			<div id="top-menu" style="height:var(--top-menu-size)" class="full-hr border-bottom">
+				<div class="dropdown-container">
+					<button>File</button>
+					<div class="list">
+						<div class="option">New</div>
+						<div class="option">Load</div>
+						<div class="option">Save</div>
+					</div>
+				</div>
+				<div class="dropdown-container">
+					<button>View</button>
+					<div class="list">
+						<div class="option">New</div>
+						<div class="option">Load</div>
+						<div class="option">Save</div>
+					</div>
+				</div>
+				<div class="dropdown-container">
+					<button>Edit</button>
+					<div class="list">
+						<div class="option">New</div>
+						<div class="option">Load</div>
+						<div class="option">Save</div>
+					</div>
+				</div>
+				<div class="dropdown-container">
+					<button>Commands</button>
+					<div class="list">
+						<div class="option">New</div>
+						<div class="option">Load</div>
+						<div class="option">Save</div>
+					</div>
+				</div>
+				<div class="dropdown-container">
+					<button>Help</button>
+					<div class="list">
+						<div class="option">New</div>
+						<div class="option">Load</div>
+						<div class="option">Save</div>
+					</div>
+				</div>
 			</div>
 			
 			<div style="height:calc(100% - var(--top-menu-size)); display:flex;" class="full-hr">
@@ -77,9 +135,6 @@
 			</div>
 		</div>
 		
-		<textarea id="stdout"></textarea><br/>
-		<button onclick="pick()">Pick</button>
-				
 		<script src="js/file.js"></script>
 		<script src="js/math.js"></script>
 		<script src="js/image.js"></script>
