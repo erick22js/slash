@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			:root {
+				--top-menu-size:25pt;
+				--split-border-width:1px;
+				--back-color-deep:#272727;
+				--back-color-dark:#414141;
+				--back-color-normal:#525252;
+				--back-color-light:#626262;
+			}
+			
+			body {
+				font-size: 15px;
+				font-family: Arial;
+				color: white;
+				background-color: var(--back-color-normal);
+			}
+			
+			.full-hr {
+				width:100%;
+			}
+			.full-vr {
+				height:100%;
+			}
+			.border-bottom {
+				border-bottom:var(--split-border-width) solid var(--back-color-deep);
+			}
+			.border-right {
+				border-right:var(--split-border-width) solid var(--back-color-deep);
+			}
+			
+			#top-menu div {
+				margin-left: 5pt;
+				margin-right: 5pt;
+				padding-left: 2pt;
+				padding-right: 2pt;
+				display: flex;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body style="margin:0; overflow:hidden;">
+		<div style="width:100vw; height:100vh;">
+			<!-- Top Menu Bar -->
+			<div id="top-menu" style="height:var(--top-menu-size); display:flex;" class="full-hr border-bottom">
+				<div>File</div>
+				<div>View</div>
+				<div>Edit</div>
+				<div>Commands</div>
+				<div>Help</div>
+			</div>
+			
+			<div style="height:calc(100% - var(--top-menu-size)); display:flex;" class="full-hr">
+				<!-- Left Tools Menu Bar -->
+				<div id="tools-menu" style="width:30pt" class="full-vr border-right"></div>
+				
+				<!-- Workspace Scene -->
+				<div id="workspace-view" style="width:calc(100% - 430pt)" class="full-vr border-right">
+					<!-- Visual Scene -->
+					<div id="visual-scene" style="height:calc(100% - 200pt); background-color: var(--back-color-deep);" class="full-hr border-bottom"></div>
+					
+					<!-- Panel Scene -->
+					<div id="panel-scene" style="height:200pt;" class="full-hr"></div>
+				</div>
+				
+				<vr/>
+				<!-- Properties Panel -->
+				<div id="properties-view" style="width:230pt" class="full-vr border-right"></div>
+				
+				<!-- Resources Panel -->
+				<div id="resources-view" style="width:170pt" class="full-vr"></div>
+			</div>
+		</div>
+		
+		<textarea id="stdout"></textarea><br/>
+		<button onclick="pick()">Pick</button>
+				
+		<script src="js/file.js"></script>
+		<script src="js/math.js"></script>
+		<script src="js/image.js"></script>
+		<script src="js/pam.js"></script>
+		<script src="js/slash-project.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
