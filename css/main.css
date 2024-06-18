@@ -1,0 +1,85 @@
+:root {
+	--top-menu-size:25pt;
+	--split-border-width:1px;
+	--back-color-deep:#272727;
+	--back-color-dark:#414141;
+	--back-color-normal:#525252;
+	--back-color-light:#626262;
+}
+
+body {
+	user-select: none;
+	font-size: 15px;
+	font-family: Arial;
+	color: white;
+	background-color: var(--back-color-normal);
+}
+
+/*
+	Dropdown Element and his options
+*/
+.dropdown-container .list {
+	position: absolute;
+	width: 140pt;
+	height: 180pt;
+	display: none;
+	color: black;
+	background-color: lightgray;
+}
+.dropdown-container .list .option{
+	padding-left: 8pt;
+	padding-right: 4pt;
+	padding-top: 5pt;
+	padding-bottom: 5pt;
+	float: initial;
+}
+.dropdown-container .list .option:hover {
+	background-color: #00000044;
+}
+.dropdown-container .list .option:active {
+	background-color: #00000088;
+}
+.dropdown-container:hover .list {
+	transform: translateY(20pt);
+	display: block;
+}
+
+/*
+	Element Main classifiers
+*/
+.full-hr {
+	width:100%;
+}
+.full-hr * {
+	float: left;
+}
+.full-vr {
+	height:100%;
+}
+.border-bottom {
+	border-bottom:var(--split-border-width) solid var(--back-color-deep);
+}
+.border-right {
+	border-right:var(--split-border-width) solid var(--back-color-deep);
+}
+
+/*
+	Specific Top-Menu Styles
+*/
+#top-menu .dropdown-container {
+	height: 100%;
+	margin-left: 5pt;
+	margin-right: 5pt;
+	padding-left: 2pt;
+	padding-right: 2pt;
+}
+#top-menu .dropdown-container:hover {
+	background-color: #00000088;
+}
+#top-menu .dropdown-container label {
+	height: 100%;
+	line-height: var(--top-menu-size);
+	text-align: center;
+	vertical-align: middle;
+}
+

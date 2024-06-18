@@ -4,75 +4,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title></title>
-		<style type="text/css">
-			:root {
-				--top-menu-size:25pt;
-				--split-border-width:1px;
-				--back-color-deep:#272727;
-				--back-color-dark:#414141;
-				--back-color-normal:#525252;
-				--back-color-light:#626262;
-			}
-			
-			body {
-				font-size: 15px;
-				font-family: Arial;
-				color: white;
-				background-color: var(--back-color-normal);
-			}
-			
-			.full-hr {
-				width:100%;
-			}
-			.full-hr * {
-				float: left;
-			}
-			.full-vr {
-				height:100%;
-			}
-			.border-bottom {
-				border-bottom:var(--split-border-width) solid var(--back-color-deep);
-			}
-			.border-right {
-				border-right:var(--split-border-width) solid var(--back-color-deep);
-			}
-			
-			#top-menu div {
-				margin-left: 5pt;
-				margin-right: 5pt;
-				padding-left: 2pt;
-				padding-right: 2pt;
-			}
-			
-			.dropdown-container button {
-				font: inherit;
-				font-size: inherit;
-				color: inherit;
-				background-color: transparent;
-				border: transparent;
-				cursor: pointer;
-			}
-			.dropdown-container .list {
-				position: absolute;
-				width: 100pt;
-				height: 180pt;
-				display: none;
-				background-color: darkorange;
-			}
-			.dropdown-container .list .option{
-				float: initial;
-			}
-			.dropdown-container:focus-within .list {
-				display: block;
-			}
-		</style>
+		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body style="margin:0; overflow:hidden;">
 		<div style="width:100vw; height:100vh;">
 			<!-- Top Menu Bar -->
 			<div id="top-menu" style="height:var(--top-menu-size)" class="full-hr border-bottom">
 				<div class="dropdown-container">
-					<button>File</button>
+					<label>File</label>
 					<div class="list">
 						<div class="option">New</div>
 						<div class="option">Load</div>
@@ -80,7 +19,7 @@
 					</div>
 				</div>
 				<div class="dropdown-container">
-					<button>View</button>
+					<label>View</label>
 					<div class="list">
 						<div class="option">New</div>
 						<div class="option">Load</div>
@@ -88,7 +27,7 @@
 					</div>
 				</div>
 				<div class="dropdown-container">
-					<button>Edit</button>
+					<label>Edit</label>
 					<div class="list">
 						<div class="option">New</div>
 						<div class="option">Load</div>
@@ -96,7 +35,7 @@
 					</div>
 				</div>
 				<div class="dropdown-container">
-					<button>Commands</button>
+					<label>Commands</label>
 					<div class="list">
 						<div class="option">New</div>
 						<div class="option">Load</div>
@@ -104,7 +43,7 @@
 					</div>
 				</div>
 				<div class="dropdown-container">
-					<button>Help</button>
+					<label>Help</label>
 					<div class="list">
 						<div class="option">New</div>
 						<div class="option">Load</div>
