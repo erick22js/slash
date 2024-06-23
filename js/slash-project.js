@@ -43,6 +43,113 @@ function SLProject(){
 		}
 	}
 	SLObject_.uid = 1000000000;
+	// Composites the figure as a graphical component
+	function SLShape(){
+		let self = this;
+		/*
+			Path is just a list of vectorized drawing methods
+			each item is composed of:
+			X of action
+			Y of action
+		*/
+		let path = [];
+		let closed = false;
+		let line_width = 0;
+		let back_color = (new Color());
+		let line_color = (new Color());
+		
+		// Getters/Setters
+		self.isClosed = function(){
+			return closed;
+		}
+		self.setClosed = function(mode=false){
+			closed = mode;
+		}
+		self.getLineWidth = function(){
+			return line_width;
+		}
+		self.setLineWidth = function(width=0){
+			line_width = width;
+		}
+		self.getBackColor = function(){
+			return back_color;
+		}
+		self.getLineColor = function(){
+			return line_color;
+		}
+		
+		// Path Operations
+		self.getPathLength = function(){
+			return path.length;
+		}
+		self.getAction = function(index=Infinity){
+			return path[index];
+		}
+		self.getActionIndex = function(action){
+			return path.indexOf(action);
+		}
+		self.addPathAction = function(x, y, index=Infinity){
+			let action = {"x":x, "y":y};
+			path.splice(index, 0, action);
+			return action;
+		}
+		self.moveAction = function(from, to){
+			if (path.includes(from)){
+				path.splice(path.indexOf(from), 1);
+				path.splice(to, 0, from);
+			}
+			else {
+				path.splice(to, 0, path.splice(from, 1)[0]);
+			}
+		}
+		self.removeAction = function(index=Infinity){
+			if (path.includes(index)){
+				path.splice(path.indexOf(index), 1);
+			}
+			else {
+				path.splice(index, 1);
+			}
+		}
+	}
+	// Is one of souces for animations, a vectorized graphic
+	function SLFigure(){
+		SLObject_.call(this, "SLFigure");
+		let self = this;
+		let shapes = [];
+		
+		// Shapes Operations
+		self.getShapesCount = function(){
+			return shapes.length;
+		}
+		self.getShape = function(index=Infinity){
+			return shapes[index];
+		}
+		self.getShapeIndex = function(shape){
+			return shapes.indexOf(shape);
+		}
+		self.createShape = function(index=Infinity){
+			let shape = new SLShape();
+			shapes.push(index, 0, shape);
+			return shape;
+		}
+		self.moveShape = function(from, to){
+			if (shapes.includes(from)){
+				shapes.splice(shapes.indexOf(from), 1);
+				shapes.splice(to, 0, from);
+			}
+			else {
+				shapes.splice(to, 0, shapes.splice(from, 1)[0]);
+			}
+		}
+		self.removeShape = function(index=Infinity){
+			if (shapes.includes(index)){
+				shapes.splice(shapes.indexOf(index), 1);
+			}
+			else {
+				shapes.splice(index, 1);
+			}
+		}
+	}
 	// Is the first and main source for animations
 	function SLImage(data){
 		SLObject_.call(this, "SLImage");

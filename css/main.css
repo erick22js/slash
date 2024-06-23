@@ -20,8 +20,8 @@ body {
 */
 .dropdown-container .list {
 	position: absolute;
-	width: 140pt;
-	height: 180pt;
+	min-width: 140pt;
+	max-height: 180pt;
 	display: none;
 	color: black;
 	background-color: lightgray;
